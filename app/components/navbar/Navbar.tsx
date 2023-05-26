@@ -1,5 +1,9 @@
+'use client';
+
 import Container from "../container";
 import Logo from "./logo"
+import Search from "./Search";
+import UserMenu from "./UserMenu";
 
 const Navbar = () => {
     return (
@@ -15,6 +19,8 @@ const Navbar = () => {
                 gap-3
                 md:gap-0'>
                 <Logo />
+                <Search />
+                <UserMenu />
                 </div>
              </Container>
 
