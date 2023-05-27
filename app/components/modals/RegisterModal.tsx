@@ -8,6 +8,8 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useRegisterModal from '../../hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
+import Input from '../inputs/Input';
+import toast from 'react-hot-toast';
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
@@ -30,9 +32,9 @@ const RegisterModal = () => {
         axios.post('/api/register', data)
         .then(() => {
             registerModal.onClose();
-        })
+        } )
         .catch((error) => {
-            console.log(error);
+            toast.error('Something Went Wrong');
         })
         .finally(() => {
             setIsLoading(false);
@@ -41,7 +43,34 @@ const RegisterModal = () => {
 
     const bodyContent = (
         <div className='flex flex-col gap-4'>
-            <Heading />
+            <Heading 
+            title="Welcome to Airbnb"
+            subtitle="Create an account!"
+            />
+            <Input 
+            id='email'
+            label='Email'
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required/>
+
+            <Input 
+            id='name'
+            label='Name'
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required/>
+
+           <Input 
+            id='password'
+            label='password'
+            type='password'
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required/>
             </div>
     )
 
