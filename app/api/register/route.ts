@@ -20,7 +20,6 @@ export async function POST(
             name,
             hashedPassword
         }
-    });
-
-    return NextResponse.json(user);
+    })
+       return NextResponse.json(user);
 }
