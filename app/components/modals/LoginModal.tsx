@@ -13,9 +13,11 @@ import Heading from '../Heading';
 import Input from '../inputs/Input';
 import toast from 'react-hot-toast';
 import Button from '../Button';
+import { useRouter } from 'next/navigation';
 
 
 const LoginModal = () => {
+    const router = useRouter();
     const registerModal = useRegisterModal();
     const LoginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
@@ -32,16 +34,23 @@ const LoginModal = () => {
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
-
-        axios.post('/api/register', data)
-        .then(() => {
-            registerModal.onClose();
-        } )
-        .catch((error) => {
-            toast.error('Something went wrong.');
+        
+        signIn('credentials', {
+            ...data,
+            redirect: false,
         })
-        .finally(() => {
+        .then((callback) => {
             setIsLoading(false);
+
+            if (callback?.ok) {
+                toast.success('Logged in');
+                router.refresh();
+                LoginModal.onClose();  
+            }
+
+            if (callback?.error) {
+                toast.error(callback.error);
+            }
         })
     }
 
