@@ -8,6 +8,7 @@ import RegisterModal from './components/modals/RegisterModal';
 import ToasterProvider from './components/providers/ToasterProvider';
 import LoginModal from './components/modals/LoginModal';
 import getCurrentUser from './actions/getCurrentUser';
+// import { SafeUser } from '@/app/types';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,7 +35,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <LoginModal />
           <RegisterModal />
-         <Navbar currentUser={currentUser}/>
+          <Navbar currentUser={ currentUser }/>
         </ClientOnly>
         {children}
         </body>

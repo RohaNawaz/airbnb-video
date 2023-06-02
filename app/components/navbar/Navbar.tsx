@@ -1,9 +1,11 @@
 'use client';
 
 import Container from "../container";
+import Categories from "./Categories";
 import Logo from "./logo"
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+
 import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
@@ -33,6 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({
              </Container>
 
             </div>
+            <Categories />
         </div>
     );
 }
