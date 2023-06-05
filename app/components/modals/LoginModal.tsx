@@ -6,8 +6,10 @@ import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+
 import useRegisterModal from '../../hooks/useLoginModal';
 import useLoginModal from '../../hooks/useLoginModal';
+
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
@@ -54,6 +56,11 @@ const LoginModal = () => {
         })
     }
 
+    const useCallback = () => {
+        LoginModal.onClose();
+        registerModal.onOpen();
+    }
+
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading 
@@ -95,10 +102,10 @@ const LoginModal = () => {
            <div className='text-neutral-500 text-center mt-6 font-light'>
              <div className='justify-center flex flex-row items-center gap-2'>
                  <div>
-                    Already have an account?
+                    First time using Airbnb?
                  </div>
                  <div onClick={registerModal.onClose} className='text-neutral-800 cursor-pointer hover:underline'>
-                    Log in
+                    Create an account
                  </div>
              </div>
            </div>
