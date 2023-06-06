@@ -5,7 +5,10 @@ import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+
 import useRegisterModal from '../../hooks/useLoginModal';
+import useLoginModal from '../../hooks/useLoginModal';
+
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
@@ -15,6 +18,8 @@ import { signIn } from 'next-auth/react';
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
+    const LoginModal = useLoginModal();
+
     const [isLoading, setIsLoading] = useState(false);
 
     const {register, handleSubmit,
@@ -42,6 +47,11 @@ const RegisterModal = () => {
             setIsLoading(false);
         })
     }
+
+    const toggle = useCallback(() => {
+        registerModal.onClose();
+        LoginModal.onOpen();
+    }, [LoginModal, registerModal])
 
     const bodyContent = (
         <div className='flex flex-col gap-4'>
@@ -94,7 +104,7 @@ const RegisterModal = () => {
                  <div>
                     Already have an account?
                  </div>
-                 <div onClick={registerModal.onClose} className='text-neutral-800 cursor-pointer hover:underline'>
+                 <div onClick={toggle} className='text-neutral-800 cursor-pointer hover:underline'>
                     Log in
                  </div>
              </div>
