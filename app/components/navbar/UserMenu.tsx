@@ -34,12 +34,12 @@ const UserMenu: React.FC<UserMenuProps> = ({
         if (!currentUser) {
             return LoginModal.onOpen();
         }
-
+                                  
         // Open Rent Modal
         rentModal.onOpen();
     }, [currentUser, LoginModal, rentModal])
 
-    return (
+    return (          
       <div className='relative'>
         <div className='flex flex-row items-center gap-3'>
             <div onClick={onRent} className='md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer'>
