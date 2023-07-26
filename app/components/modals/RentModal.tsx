@@ -51,7 +51,7 @@ const RentModal = () => {
             bathroomCount: 1,
             imageSrc: '',
             price: 1,
-            tile: '',
+            title: '',
             description: ''
         }
     });
@@ -84,13 +84,13 @@ const RentModal = () => {
     };
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        if (step === STEPS.PRICE) {
+        if (step !== STEPS.PRICE) {
             return onNext();
         }
 
         setIsLoading(true);
 
-        axios.post('/api/listing', data)
+        axios.post('/api/listings', data)
         .then(() => {
             toast.success('Listing Created');
             router.refresh();
@@ -127,7 +127,7 @@ const RentModal = () => {
             title="Which of these best describes your place?"
             subtitle="Pick a category"
             />
-            <div className="grid grid-col-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto
             "
             >
            {categories.map((item) => (
@@ -264,3 +264,5 @@ if (step === STEPS.PRICE) {
 }
 
 export default RentModal;
+
+// onSuvbmit={handleSubmit(onSubmit)}

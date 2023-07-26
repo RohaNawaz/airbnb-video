@@ -165,13 +165,15 @@ const RegisterModal= () => {
     setIsLoading(true);
 
     axios.post('/api/register', data)
-    .then(() => {
+    .then((res) => {
+      console.log(res)
       toast.success('Registered!');
       registerModal.onClose();
       loginModal.onOpen();
     })
     .catch((error) => {
-      toast.error(error);
+      console.error(error)
+      toast.error(error.message);
     })
     .finally(() => {
       setIsLoading(false);
