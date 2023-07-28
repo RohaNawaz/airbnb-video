@@ -144,7 +144,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               bathroomCount={listing.bathroomCount}
               locationValue={listing.locationValue}
             />
-            <div 
+            {/* <div 
               className="
                 order-first 
                 mb-10 
@@ -161,7 +161,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 disabled={isLoading}
                 disabledDates={disabledDates}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
