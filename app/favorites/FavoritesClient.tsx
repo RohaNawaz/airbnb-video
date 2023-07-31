@@ -5,12 +5,12 @@ import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
 
 interface FavoritesClientProps {
-  listings: SafeListing[],
+  listing: SafeListing[],
   currentUser?: SafeUser | null,
 }
 
 const FavoritesClient: React.FC<FavoritesClientProps> = ({
-  listings,
+  listing,
   currentUser
 }) => {
   return (
@@ -32,7 +32,7 @@ const FavoritesClient: React.FC<FavoritesClientProps> = ({
           gap-8
         "
       >
-        {listings.map((listing: any) => (
+        {listing.map((listing: any) => (
           <ListingCard
             currentUser={currentUser}
             key={listing.id}
