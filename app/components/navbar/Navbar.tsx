@@ -46,7 +46,7 @@ import { SafeUser } from "@/app/types";
 
 import Categories from "./Categories";
 import Container from "../ContainerNew";
-import Logo from "./Logo";
+import Logo from "./LogoNew";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 
