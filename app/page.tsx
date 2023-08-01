@@ -55,7 +55,7 @@
 
 // export default Home;
 
-import Container from "@/app/components/Container";
+import Container from "@/app/components/ContainerNew";
 import ListingCard from "@/app/components/listings/ListingCard";
 import EmptyState from "@/app/components/EmptyState";
 
