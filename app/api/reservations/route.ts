@@ -15,12 +15,12 @@
 //   const body = await request.json();
 //   const { 
 //     listingId,
-//     starDate,
+//     startDate,
 //     endDate,
 //     totalPrice
 //    } = body;
 
-//    if (!listingId || !starDate || !endDate || !totalPrice) {
+//    if (!listingId || !startDate || !endDate || !totalPrice) {
 //     return NextResponse.error();
 //   }
 
@@ -32,7 +32,7 @@
 //       reservations: {
 //         create: {
 //           userId: currentUser.id,
-//           starDate,
+//           startDate,
 //           endDate,
 //           totalPrice,
 //         }
